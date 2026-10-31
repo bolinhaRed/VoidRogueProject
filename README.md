@@ -2,6 +2,8 @@
 
 Jogo de browser 100% offline (HTML5 + CSS3 + JavaScript puro): gestão de recursos estilo OGame + sobrevivência rogue-like estilo FTL.
 
+https://bolinhared.github.io/VoidRogueProject/
+
 ## Estrutura
 ```
 index.html            página principal (ordem dos scripts documentada)
