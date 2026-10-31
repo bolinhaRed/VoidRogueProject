@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Void Rogue: Space Survival</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-tab="b">
+<div id="boot">A carregar...</div>
+<div id="toasts"></div>
+<div id="scw">
+ <canvas id="sc"></canvas>
+ <div id="ttl">VOID ROGUE<small>SPACE SURVIVAL</small></div><div id="sysl"></div>
+ <div id="bhud"><div id="bst"></div><div id="abil"></div></div>
+</div>
+<div id="top" class="gl">
+ <div id="res"></div>
+ <div id="thw"><div id="thl"></div><div id="thb"><div id="thf"></div></div></div>
+ <div id="btns"><button id="mt" onclick="VR.toggleSound()">Som: ON</button><button onclick="VR.saveNow()">Gravar</button><button onclick="VR.menu()">Menu</button><button class="dg" onclick="if(confirm('Abandonar a run atual?'))VR.endRun(0,'Run abandonada.')">Abandonar</button></div>
+</div>
+<div id="obj" class="gl"></div>
+<nav id="tabs"><button data-t="b" class="on" onclick="VR.tab('b')">Base</button><button data-t="e" onclick="VR.tab('e')">Energia</button><button data-t="f" onclick="VR.tab('f')">Frota</button><button data-t="m" onclick="VR.tab('m')">Mapa</button><button data-t="h" onclick="VR.tab('h')">Histórico</button></nav>
+<main>
+ <section class="gl" id="pb"><h3>Edifícios</h3><div id="bl" class="grid"></div><h3>Pesquisas</h3><div id="rl" class="grid"></div></section>
+ <section class="gl" id="pe"><h3>Gestão de Energia</h3><div id="eg"></div><div id="el" class="grid"></div></section>
+ <section class="gl" id="pf"><h3>Frota</h3><div id="pw"></div><div id="fl" class="grid"></div></section>
+ <section class="gl" id="pm"><h3>Mapa do Sistema</h3><div id="ev"></div><div id="nodes"></div><div id="jp"></div></section>
+ <section class="gl" id="ph"><h3>Histórico de Registos</h3><div id="lf"></div><div id="log"></div></section>
+</main>
+<div id="ov"><div class="gl" id="ovc"></div></div>
+<!-- Ordem importa: config > state > economy > audio > combat > map > scene > ui > assets > main -->
+<script src="js/config.js"></script><script src="js/state.js"></script><script src="js/economy.js"></script>
+<script src="js/audio.js"></script><script src="js/combat.js"></script><script src="js/map.js"></script>
+<script src="js/scene.js"></script><script src="js/ui.js"></script><script src="js/assets.js"></script><script src="js/main.js"></script>
+</body>
+</html>
