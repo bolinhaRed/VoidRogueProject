@@ -1,6 +1,8 @@
 /* main.js — arranque: carrega assets, grava/carrega, ciclo de 1s, teclas e fases musicais */
 (()=>{
 const $=VR.$;let last=Date.now();
+// PWA: regista o service worker (só em http/https) para funcionar offline e poder ser instalado
+if("serviceWorker"in navigator&&location.protocol.startsWith("http"))navigator.serviceWorker.register("sw.js").catch(()=>{});
 VR.loadAssets(()=>{
  VR.load();VR.scene.start();$("#boot").remove();
  if(VR.r)VR.render();VR.menu(null,VR.G.meta.seen?"j":"h");VR.G.meta.seen=1;   // 1.ª vez: abre em "Como jogar"

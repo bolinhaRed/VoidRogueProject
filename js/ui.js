@@ -88,6 +88,8 @@ VR.pick=k=>{VR.sel.pl=k;VR.sfx.click();VR.menu()};VR.sort=k=>{sort=k;VR.menu(nul
 VR.buy=k=>{VR.audio.init();const U=VR.UP[k],m=VR.G.meta,l=m.u[k]||0,c=U.b*(l+1);if(m.q>=c&&l<U.m){m.q-=c;m.u[k]=l+1;VR.sfx.good();VR.save();VR.menu(null,"l")}else VR.sfx.err()};
 VR.go=()=>{VR.audio.init();VR.sfx.click();if(!VR.G.run)VR.newRun(VR.sel.pl,(VR.sel.name||"").trim()||"Colónia Alfa");VR.r=VR.G.run;$("#ov").style.display="none";VR.render()};
 VR.rename=()=>{const r=VR.r;if(!r)return;const n=prompt("Novo nome do planeta:",r.name);if(n&&n.trim()){r.name=n.trim().slice(0,24);VR.L(`Planeta renomeado para ${r.name}.`,"s");VR.render();VR.save()}};
+// Ecrã inteiro manual (útil se a app instalada abrir em modo "standalone")
+VR.fs=()=>{const d=document,e=d.documentElement;if(d.fullscreenElement)d.exitFullscreen();else if(e.requestFullscreen)e.requestFullscreen().catch(()=>{})};
 VR.saveNow=()=>{VR.save();if(VR.r){VR.L("Progresso gravado localmente.","g");VR.render()}};
 VR.toggleSound=()=>{VR.audio.init();VR.audio.toggle();VR.render()};
 })();

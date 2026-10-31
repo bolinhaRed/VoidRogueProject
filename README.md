@@ -49,9 +49,16 @@ O Sistema 1 é calmo; a cada salto entra um modificador aleatório: Iónico, Cem
 ### Pontuação
 `(saltos × 1000 + segundos sobrevividos + fragmentos × 50) × multiplicador do planeta`, mais 5000 se vencer. 1 dia = 60 s de jogo. O quadro e o progresso ficam guardados no `localStorage` do browser (neste dispositivo).
 
+## Instalar no telemóvel (PWA, ecrã inteiro)
+1. Abre o link do jogo no **Firefox para Android** (tem de ser HTTPS, como o GitHub Pages).
+2. Menu ⋮ → **Instalar** (ou "Adicionar ao ecrã principal").
+3. O atalho abre o jogo sem barra de endereços, em ecrã inteiro (`display: fullscreen` no `manifest.webmanifest`). Em alguns telemóveis o Firefox abre em modo "standalone": usa o botão **Ecrã inteiro** do jogo.
+4. Depois da primeira visita o jogo funciona **offline** (`sw.js`). Ao publicar uma versão nova, muda `CACHE` em `sw.js`.
+
 ## Estrutura do projeto
 ```
 index.html          página principal (ordem dos scripts comentada)
+manifest.webmanifest + sw.js + icon-*.png   instalação como app e modo offline
 css/style.css       tema sci-fi, responsivo (PC e mobile)
 js/config.js        dados: edifícios, naves, planetas, modificadores, legado, habilidades
 js/state.js         estado, custos, pontuação, gravação e tempo offline

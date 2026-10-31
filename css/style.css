@@ -85,3 +85,4 @@ button.sw{width:54px;flex:none;color:var(--rd);border-color:var(--rd)}button.sw.
 .tb{width:100%;border-collapse:collapse}.tb th{color:var(--cy);font-size:11px;text-align:left;padding:4px;border-bottom:1px solid var(--bd)}.tb td{padding:6px 4px;border-bottom:1px solid rgba(255,255,255,.06)}.tb small{display:block;color:var(--mu)}.tb tr.hl{background:rgba(255,210,74,.12)}
 .hl2{margin-bottom:8px;padding:8px;border-left:3px solid var(--cy);background:rgba(255,255,255,.03);border-radius:0 8px 8px 0}.hl2 p{color:var(--mu)}
 #mdinfo{margin-bottom:8px;padding:6px 10px;border:1px solid var(--bd);border-radius:8px;background:rgba(0,255,225,.05)}
+html,body{overscroll-behavior:none;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
