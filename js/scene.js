@@ -20,7 +20,7 @@ function frame(ms){const t=ms/1000,dt=Math.min(.05,t-last);last=t;const r=VR.r,B
  const jp=r?r.jump%10:0,a=t*.45,px=B.on?60:100,py=100,pscale=B.on?.7:1;
  x.globalAlpha=B.on?.55:1;
  const mx=px+Math.cos(a)*118*pscale,my=py+Math.sin(a)*28,back=Math.sin(a)<0,mo=()=>x.drawImage(A("moon"),mx-16,my-16,32,32);
- if(back)mo();x.drawImage(A("P"+jp),px-64*pscale,py-64*pscale,128*pscale,128*pscale);if(!back)mo();x.globalAlpha=1;
+ if(back)mo();x.drawImage(A(VR.P().sp),px-64*pscale,py-64*pscale,128*pscale,128*pscale);if(!back)mo();x.globalAlpha=1;
  if(B.on)drawBattle(t,B);else if(r)idleFleet(t,r);
  if(S.flash>0){x.fillStyle=`rgba(255,255,255,${S.flash})`;x.fillRect(0,0,W,H);S.flash*=.9}
  if(w>.3){x.fillStyle=`rgba(255,255,255,${w*.5})`;x.fillRect(0,0,W,H)}
@@ -31,9 +31,15 @@ function drawBattle(t,B){
  B.u.forEach(u=>{if(u.hp<=0)return;if(B.od>0){x.shadowColor="#fa4";x.shadowBlur=8}ship(u.s,u.x+Math.sin(t*2+u.y)*2,u.y,Math.PI/2,t);x.shadowBlur=0;hp(u)});
  B.e.forEach(e=>{if(e.hp<=0)return;e.s=="eye"?x.drawImage(A("eye"),e.x-24,e.y-24):ship(e.s,e.x+Math.sin(t*2+e.y)*2,e.y,-Math.PI/2,t);hp(e)});
  if(B.sh>0){x.fillStyle=`rgba(0,255,225,${.1+.05*Math.sin(t*12)})`;x.strokeStyle=`rgba(0,255,225,${.5+.3*Math.sin(t*10)})`;x.lineWidth=2;x.beginPath();x.ellipse(125,100,100,96,0,0,7);x.fill();x.stroke()}
+ if(B.focus&&B.focus.hp>0){const f=B.focus;x.save();x.translate(f.x,f.y);x.rotate(t*2);x.strokeStyle="#ff3b6b";x.lineWidth=2;x.setLineDash([8,6]);x.beginPath();x.arc(0,0,24,0,7);x.stroke();x.restore()}
  B.p.forEach(p=>{const im=A(p.k);x.save();x.translate(p.x,p.y);x.rotate((p.a||0)+Math.PI/2);x.drawImage(im,-1,-4);x.restore()});
  B.fx.forEach(f=>{if(f.k=="ring"){x.strokeStyle=`rgba(255,200,80,${1-f.t/.7})`;x.lineWidth=3;x.beginPath();x.arc(f.x,f.y,f.t*480,0,7);x.stroke();return}
   const im=A("ex"+f.s),fr=Math.min(7,Math.floor(f.t*14));x.drawImage(im,fr*f.s,0,f.s,f.s,(f.x-f.s/2)|0,(f.y-f.s/2)|0,f.s,f.s)})}
-function hp(u){if(u.hp>=u.mx)return;x.fillStyle="#000a";x.fillRect(u.x-10,u.y-18,20,3);x.fillStyle=u.a>0&&!u.t?"#f55":u.hp/u.mx>.4?"#5f8":"#fa4";x.fillRect(u.x-10,u.y-18,20*u.hp/u.mx,3)}
+function hp(u){if(u.hp>=u.mx)return;const w=26,h=5,bx=(u.x-w/2)|0,by=Math.max(2,(u.y-26)|0);                       // barra 5px com contorno escuro
+ x.fillStyle="#000";x.fillRect(bx-1,by-1,w+2,h+2);x.strokeStyle="#fff";x.lineWidth=1;x.strokeRect(bx-1.5,by-1.5,w+3,h+3);x.fillStyle="#400";x.fillRect(bx,by,w,h);
+ x.fillStyle=u.t?(u.hp/u.mx>.4?"#5f8":"#fa4"):"#f55";x.fillRect(bx,by,w*u.hp/u.mx,h)}
+// Clicar/tocar num inimigo foca nele todo o fogo da frota
+cv.addEventListener("pointerdown",e=>{const B=VR.battle;if(!B.on||B.end)return;const R=cv.getBoundingClientRect(),px=(e.clientX-R.left)*W/R.width,py=(e.clientY-R.top)*H/R.height;let best=null,bd=1400;
+ B.e.forEach(u=>{if(u.hp<=0)return;const d=(u.x-px)**2+(u.y-py)**2;if(d<bd){bd=d;best=u}});if(best){B.focus=best;VR.sfx.click()}});
 S.start=()=>requestAnimationFrame(frame);
 })();

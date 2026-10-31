@@ -2,8 +2,6 @@
 
 Jogo de browser 100% offline (HTML5 + CSS3 + JavaScript puro): gestão de recursos estilo OGame + sobrevivência rogue-like estilo FTL.
 
-https://bolinhared.github.io/VoidRogueProject/
-
 ## Estrutura
 ```
 index.html            página principal (ordem dos scripts documentada)
@@ -27,6 +25,12 @@ build.py              (opcional) gera void-rogue-standalone.html com tudo embuti
 1. Cria o repositório e faz commit de **tudo** (mantém as pastas `css/`, `js/` e `assets/`).
 2. Settings → Pages → Branch `main`, pasta `/ (root)`. O jogo fica em `https://<user>.github.io/<repo>/`.
 3. Para testar localmente, abre `index.html` (funciona também por `file://`).
+
+## Planetas, nome e classificação
+No menu **Jogar** escolhes o planeta (bónus/penalizações em `VR.PL`, `js/config.js`) e dás-lhe nome (também podes renomear durante o jogo clicando no nome por baixo do título). Quando a campanha acaba, o resultado entra no **Quadro de Classificação** (pontos, dias, saltos), guardado em `localStorage`.
+
+## Combate e sistemas
+Clica num inimigo para focar o fogo; 1-3 habilidades; **4** = Impulso (gasta Deutério). A Ameaça só começa após a 1.ª construção/exploração. Cada sistema tem um modificador (`VR.MODS` em `js/config.js`).
 
 ## Controlos
 Teclas **1**, **2**, **3** no combate: Escudo de Emergência (5s), Pulso de Plasma (dano em área), Sobrecarga (+60% dano 6s).

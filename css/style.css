@@ -71,3 +71,17 @@ button.sw{width:54px;flex:none;color:var(--rd);border-color:var(--rd)}button.sw.
 .big{font:700 22px ui-monospace,monospace;letter-spacing:3px;color:var(--cy);text-shadow:0 0 12px var(--cy);margin-bottom:6px}
 @media(max-width:800px){body{padding-bottom:64px}#tabs{position:fixed;left:0;right:0;bottom:0;z-index:8;margin:0;padding:6px 8px calc(6px + env(safe-area-inset-bottom,0px));background:rgba(2,3,10,.94);border-top:1px solid var(--bd)}
  .grid{grid-template-columns:1fr}#ttl{font-size:13px}.ab small{display:none}#bst{font-size:11px}}
+
+/* planetas, menu, quadro de classificação */
+#pname{position:absolute;left:12px;top:42px;font:12px ui-monospace,monospace;color:var(--tx);cursor:pointer;text-shadow:0 0 6px #000}#pname:hover{color:var(--cy)}
+.help{color:var(--mu);font-size:12px;margin-bottom:8px}#pinfo{margin-bottom:10px}
+.mods{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px}.mod{font:11px ui-monospace,monospace;padding:1px 6px;border-radius:5px;background:rgba(0,0,0,.4);color:var(--mu)}.mod.g{color:var(--gr)}.mod.b{color:#ff7a8f}
+.mtabs,.fl{display:flex;gap:6px;margin:8px 0;flex-wrap:wrap}.mtabs button,.fl button{flex:1;padding:7px}.mtabs button.on,.fl button.on{background:var(--cy);color:#001}
+.sum{padding:8px;margin-bottom:8px;border:1px solid var(--pu);border-radius:8px;background:rgba(181,124,255,.1)}
+.pls{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:8px}
+.pl{cursor:pointer;padding:8px;border:1px solid rgba(255,255,255,.1);border-radius:10px;background:rgba(255,255,255,.02);display:flex;flex-direction:column;gap:3px;transition:.2s}
+.pl:hover{border-color:var(--cy)}.pl.sel{border-color:var(--cy);background:rgba(0,255,225,.08);box-shadow:0 0 14px rgba(0,255,225,.35)}.pl .ic{width:64px;height:64px;align-self:center;background:none}.pl small{color:var(--mu);font-size:11px}
+.nm{display:flex;gap:6px}.nm input{flex:1;font:inherit;color:var(--tx);background:rgba(0,0,0,.4);border:1px solid var(--bd);border-radius:8px;padding:8px}
+.tb{width:100%;border-collapse:collapse}.tb th{color:var(--cy);font-size:11px;text-align:left;padding:4px;border-bottom:1px solid var(--bd)}.tb td{padding:6px 4px;border-bottom:1px solid rgba(255,255,255,.06)}.tb small{display:block;color:var(--mu)}.tb tr.hl{background:rgba(255,210,74,.12)}
+.hl2{margin-bottom:8px;padding:8px;border-left:3px solid var(--cy);background:rgba(255,255,255,.03);border-radius:0 8px 8px 0}.hl2 p{color:var(--mu)}
+#mdinfo{margin-bottom:8px;padding:6px 10px;border:1px solid var(--bd);border-radius:8px;background:rgba(0,255,225,.05)}

@@ -12,21 +12,21 @@
 <div id="scw">
  <canvas id="sc"></canvas>
  <div id="ttl">VOID ROGUE<small>SPACE SURVIVAL</small></div><div id="sysl"></div>
- <div id="bhud"><div id="bst"></div><div id="abil"></div></div>
+ <div id="pname" onclick="VR.rename()" title="Renomear planeta"></div><div id="bhud"><div id="bst"></div><div id="abil"></div></div>
 </div>
 <div id="top" class="gl">
  <div id="res"></div>
  <div id="thw"><div id="thl"></div><div id="thb"><div id="thf"></div></div></div>
- <div id="btns"><button id="mt" onclick="VR.toggleSound()">Som: ON</button><button onclick="VR.saveNow()">Gravar</button><button onclick="VR.menu()">Menu</button><button class="dg" onclick="if(confirm('Abandonar a run atual?'))VR.endRun(0,'Run abandonada.')">Abandonar</button></div>
+ <div id="btns"><button id="mt" onclick="VR.toggleSound()">Som: ON</button><button onclick="VR.saveNow()">Gravar</button><button onclick="VR.menu(null,'h')">Ajuda</button><button onclick="VR.menu(null,'j')">Menu</button><button class="dg" onclick="if(confirm('Abandonar a run atual?'))VR.endRun(0,'Run abandonada.')">Abandonar</button></div>
 </div>
 <div id="obj" class="gl"></div>
 <nav id="tabs"><button data-t="b" class="on" onclick="VR.tab('b')">Base</button><button data-t="e" onclick="VR.tab('e')">Energia</button><button data-t="f" onclick="VR.tab('f')">Frota</button><button data-t="m" onclick="VR.tab('m')">Mapa</button><button data-t="h" onclick="VR.tab('h')">Histórico</button></nav>
 <main>
- <section class="gl" id="pb"><h3>Edifícios</h3><div id="bl" class="grid"></div><h3>Pesquisas</h3><div id="rl" class="grid"></div></section>
- <section class="gl" id="pe"><h3>Gestão de Energia</h3><div id="eg"></div><div id="el" class="grid"></div></section>
- <section class="gl" id="pf"><h3>Frota</h3><div id="pw"></div><div id="fl" class="grid"></div></section>
- <section class="gl" id="pm"><h3>Mapa do Sistema</h3><div id="ev"></div><div id="nodes"></div><div id="jp"></div></section>
- <section class="gl" id="ph"><h3>Histórico de Registos</h3><div id="lf"></div><div id="log"></div></section>
+ <section class="gl" id="pb"><h3>Edifícios</h3><p class="help">Constrói e melhora edifícios para produzir recursos. Os bónus e penalizações do teu planeta aparecem abaixo.</p><div id="pinfo"></div><div id="bl" class="grid"></div><h3>Pesquisas</h3><div id="rl" class="grid"></div></section>
+ <section class="gl" id="pe"><h3>Gestão de Energia</h3><p class="help">A energia alimenta minas, laboratório, hangar e escudo. Se faltar, tudo rende menos: usa os interruptores para decidir quem recebe energia.</p><div id="eg"></div><div id="el" class="grid"></div></section>
+ <section class="gl" id="pf"><h3>Frota</h3><p class="help">Constrói naves no Hangar. Defendem-te nos combates e no ataque massivo. A capacidade é limitada.</p><div id="pw"></div><div id="fl" class="grid"></div></section>
+ <section class="gl" id="pm"><h3>Mapa do Sistema</h3><div id="mdinfo"></div><p class="help">Explora setores (gasta Deutério). Com 3 explorados e Deutério suficiente, podes saltar para outro sistema e baixar a Ameaça.</p><div id="ev"></div><div id="nodes"></div><div id="jp"></div></section>
+ <section class="gl" id="ph"><h3>Histórico de Registos</h3><p class="help">Todos os eventos da campanha, do mais recente para o mais antigo.</p><div id="lf"></div><div id="log"></div></section>
 </main>
 <div id="ov"><div class="gl" id="ovc"></div></div>
 <!-- Ordem importa: config > state > economy > audio > combat > map > scene > ui > assets > main -->
